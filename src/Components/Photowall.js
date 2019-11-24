@@ -6,8 +6,12 @@ class Photowall extends Component{
     render() {
         const posts = this.props.posts
         return (
-            <div className="container">
+            <div>
+                <a href='#AddPhoto' className='addButton' onClick={this.props.onNavigate}>+</a>
+                <button className='addButton' onClick={this.props.onNavigate}>+</button>
+                <div className="container">
                 { posts.map((post, index) => <Photo key={index} post={post} removePhoto={this.props.removePhoto} />) }
+            </div>
             </div>
         )
     }

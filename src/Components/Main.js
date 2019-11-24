@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import Title from "./Title"
 import Photowall from './Photowall'
+import AddPhoto from "./AddPhoto";
 
 class Main extends Component {
     constructor () {
@@ -23,8 +24,10 @@ class Main extends Component {
                     imageLink: "https://img.purch.com/rc/640x415/aHR0cDovL3d3dy5zcGFjZS5jb20vaW1hZ2VzL2kvMDAwLzA3Mi84NTEvb3JpZ2luYWwvc3BhY2V4LWlyaWRpdW00LWxhdW5jaC10YXJpcS1tYWxpay5qcGc=" + "08323785_735653395_n.jpg"
                 }
             ],
+            screen: 'photos',
         }
         this.removePhoto = this.removePhoto.bind(this)
+        this.navigate = this.navigate.bind(this)
     }
 
     removePhoto (postRemoved) {
@@ -33,11 +36,30 @@ class Main extends Component {
         }))
     }
 
+    navigate () {
+        this.setState({
+            screen: 'addPhoto'
+        })
+    }
+
     render() {
         return (
             <div>
-                <Title/>
-                <Photowall posts={this.state.posts} removePhoto={this.removePhoto} />
+                {
+                    this.state.screen === 'photos' && (
+                        <div>
+                            <Title/>
+                            <Photowall posts={this.state.posts} removePhoto={this.removePhoto} onNavigate={this.navigate} />
+                        </div>
+                    )
+                }
+                {
+                    this.state.screen === 'addPhoto' && (
+                        <div>
+                            <AddPhoto />
+                        </div>
+                    )
+                }
             </div>
         )
     }
