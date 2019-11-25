@@ -71,4 +71,7 @@ p {
     border-radius: 50%;
     border: none;
     cursor: pointer;
+    text-decoration: none;
+    text-align: center;
+    line-height: 80px;
 }

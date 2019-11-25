@@ -1,14 +1,14 @@
 import React, { Component } from 'react'
 import Photo from './Photo'
 import PropTypes from 'prop-types'
+import { Link } from "react-router-dom";
 
 class Photowall extends Component{
     render() {
         const posts = this.props.posts
         return (
             <div>
-                <a href='#AddPhoto' className='addButton' onClick={this.props.onNavigate}>+</a>
-                <button className='addButton' onClick={this.props.onNavigate}>+</button>
+                <Link to='/AddPhoto' className='addButton'>+</Link>
                 <div className="container">
                 { posts.map((post, index) => <Photo key={index} post={post} removePhoto={this.props.removePhoto} />) }
             </div>
