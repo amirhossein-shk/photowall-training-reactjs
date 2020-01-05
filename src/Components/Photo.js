@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import {removePost} from "../redux/actions";
 
 class Photo extends Component{
     render() {
@@ -10,7 +11,7 @@ class Photo extends Component{
                     <p> {post.description} </p>
                 </figcaption>
                 <div className="button-container">
-                    <button className="remove-button" onClick={ () => this.props.removePhoto(post) }> Remove </button>
+                    <button className="remove-button" onClick={ () => this.props.dispatch(removePost(this.props.index)) }> Remove </button>
                 </div>
             </figure>
         );

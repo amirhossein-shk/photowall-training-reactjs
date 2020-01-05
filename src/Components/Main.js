@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
 import Title from "./Title"
-import Photowall from './Photowall'
-import AddPhoto from "./AddPhoto";
+
 import { Route } from 'react-router-dom'
+import {removePost} from "../redux/actions";
+import Photowall from "./Photowall";
 
 class Main extends Component {
     constructor () {
@@ -10,12 +11,12 @@ class Main extends Component {
     }
 
     render() {
-        console.log(this.props)
         return (
             <div>
                 <Route exact path='/' render={() => (
                     <div>
-                        <Title/>
+                      <Title/>
+                      <Photowall {...this.props} />
                     </div>
                 )}/>
             </div>
