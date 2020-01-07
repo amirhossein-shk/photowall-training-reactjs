@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import {addPost} from "../redux/actions";
 
 class AddPhoto extends Component {
     constructor () {
@@ -15,7 +16,8 @@ class AddPhoto extends Component {
             description
         }
         if (imageLink && description) {
-            this.props.addPhoto(newPost)
+            this.props.dispatch(addPost(newPost))
+            this.props.history.push('/')
         }
     }
 
